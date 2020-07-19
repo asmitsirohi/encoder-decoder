@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assests/logo.png" type="image/x-icon">
+    <title>Encoder & Decoder</title>
+    <link rel="stylesheet" href="libs/css/bootstrap.min.css">
+    <script src="libs/jquery-3.4.1.min.js"></script>
+    <script src="libs/popper.min.js"></script>
+    <script src="libs/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- Encode Copy Modal -->
+    <div class="modal fade" id="copyModal" tabindex="-1" role="dialog" aria-labelledby="copyModalLabel"
+        aria-hidden="true" sticky-top>
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger font-weight-bold" id="copyModalLabel">Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span class="text-success font-weight-bold">Text copied to clipboard! Paste it and have fun!</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Encode Failed Modal -->
+    <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="failModalLabel"
+        aria-hidden="true" sticky-top>
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger font-weight-bold" id="failModalLabel">Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span class="text-danger font-weight-bold">Nothing to Copy!</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Decode Copy Modal -->
+        <div class="modal fade" id="decodecopyModal" tabindex="-1" role="dialog" aria-labelledby="decodecopyModalLabel"
+        aria-hidden="true" sticky-top>
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger font-weight-bold" id="decodecopyModalLabel">Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span class="text-success font-weight-bold">Text copied to clipboard! Paste it and have fun!</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decode Failed Modal -->
+    <div class="modal fade" id="decodefailModal" tabindex="-1" role="dialog" aria-labelledby="decodefailModalLabel"
+        aria-hidden="true" sticky-top>
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger font-weight-bold" id="decodefailModalLabel">Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span class="text-danger font-weight-bold">Nothing to Copy!</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 mb-2">
+                <hr>
+                <h1 class="text-center font-weight-bold">
+                    <span class="badge badge-primary">Encoder & Decoder</span>
+                </h1>
+                <hr>
+                <h2 class="text-center font-weight-bold mb-3">
+                    <span class="badge badge-dark">Text Encoder</span>
+                </h2>
+                <div class="form-group">
+                    <h5>
+                        <span class="badge badge-danger mb-2">
+                            <label for="encode" class="font-weight-bolder">Encode Text:</label>
+                        </span>
+                    </h5>
+                    <textarea name="encode" id="encode" cols="30" rows="4" placeholder="Type here..."
+                        class="form-control" style="resize: none;"></textarea>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <h5>
+                        <span class="badge badge-success mb-2">
+                            <label for="encoded" class="font-weight-bolder">Encoded Text:</label>
+                        </span>
+                    </h5>
+                    <textarea name="encoded" id="encoded" cols="30" rows="4" placeholder="Encoded text shows here..."
+                        class="form-control bg-light" style="resize: none;" readonly></textarea>
+                </div>
+
+                <div>
+                    <button class="btn btn-primary container-fluid font-weight-bold" id="copy">Click to Copy</button>
+                </div>
+
+                <hr>
+                
+                <h2 class="text-center font-weight-bold mb-3">
+                    <span class="badge badge-dark">Text Decoder</span>
+                </h2>
+                <div class="form-group">
+                    <h5>
+                        <span class="badge badge-danger mb-2">
+                            <label for="decode" class="font-weight-bolder">Decode Text:</label>
+                        </span>
+                    </h5>
+                    <textarea name="decode" id="decode" cols="30" rows="4" placeholder="Type here..."
+                        class="form-control" style="resize: none;"></textarea>
+                </div>
+                
+                <br>
+
+                <div class="form-group">
+                    <h5>
+                        <span class="badge badge-success mb-2">
+                            <label for="decoded" class="font-weight-bolder">Decoded Text:</label>
+                        </span>
+                    </h5>
+                    <textarea name="decoded" id="decoded" cols="30" rows="4" placeholder="Decoded text shows here..."
+                        class="form-control bg-light" style="resize: none;" readonly></textarea>
+                </div>
+
+                <div>
+                    <button class="btn btn-primary container-fluid font-weight-bold" id="copy2">Click to Copy</button>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
+    
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
