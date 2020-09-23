@@ -1,7 +1,9 @@
 <?php
 
-    if(isset($_POST['encodevalue'])) {
+    if(isset($_POST['encodekey'])) {
         $encodevalue = $_POST['encodevalue'];
+        $encodekey = $_POST['encodekey'];
+        $private_secret_key = bin2hex($encodekey);
 
         function encrypt($message,$encryption_key) {
             $key = hex2bin($encryption_key);
@@ -21,15 +23,17 @@
     
 
         $original_string = $encodevalue;
-        $private_secret_key = '1f4276388ad3214c873428dbef42243f';
-
+        // $private_secret_key = '1f4276388ad3214c873428dbef42243f';
+        
         $encrypted = encrypt($original_string,$private_secret_key);
 
         echo $encrypted;
     }
 
-    if(isset($_POST['decodevalue'])) {
+    if(isset($_POST['decodeKey'])) {
         $decodevalue = $_POST['decodevalue'];
+        $decodeKey = $_POST['decodeKey'];
+        $private_secret_key = bin2hex($decodeKey);
     
         function decrypt($message,$encryption_key) {
                 $key = hex2bin($encryption_key);
@@ -50,8 +54,7 @@
             }
     
             $encrypted = $decodevalue;
-            $private_secret_key = '1f4276388ad3214c873428dbef42243f';
-    
+            
             $decrypted = decrypt($encrypted,$private_secret_key);
     
             echo $decrypted;

@@ -2,10 +2,12 @@ $(document).ready(function(){
 
     // Code to Encode
 
-    $('#encode').keyup(function(){
+    $('#encodeKey').keyup(function(){
         let encodevalue = $('#encode').val();
+        let encodekey = $('#encodeKey').val();
         $.post('main.php',{
-            encodevalue : encodevalue
+            encodevalue : encodevalue,
+            encodekey : encodekey
         },function(response){
             $("#encoded").val(response);
             
@@ -25,10 +27,12 @@ $(document).ready(function(){
 
     //Code to Decode
 
-    $("#decode").on('keyup change',function(){
+    $("#decodeKey").on('keyup change',function(){
         let decodevalue = $("#decode").val();
+        let decodeKey = $("#decodeKey").val();
         $.post('main.php',{
-            decodevalue : decodevalue
+            decodevalue : decodevalue,
+            decodeKey : decodeKey
         },function(response){
             $("#decoded").val(response);
             
