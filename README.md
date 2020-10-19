@@ -4,7 +4,7 @@
 
 ## Requirements
 
-- Any web browser
+- XAMP || WAMP || MAMP
 
 > Amazing one
 
@@ -16,7 +16,12 @@
 ----
 ## Instructions to run
 
-### Step
+### Step 1
+```
+$ Start WAMP || XAMP || MAMP
+```
+
+### Step 2
 
 Open index.php in Web browser, follow the instructions for that on the opened browser window.
 
